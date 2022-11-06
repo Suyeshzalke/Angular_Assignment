@@ -1,0 +1,50 @@
+<p>
+  <mat-toolbar color="primary">
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>Sy app</span>&nbsp;&nbsp;
+    <button
+    mat-mini-fab
+    color="accent"
+    aria-label="Example icon button with a menu icon"
+    routerLink="/home"
+  >
+  
+    <mat-icon matBadge="6"  matBadgeColor="warn">home</mat-icon>
+  </button>
+    <span class="example-spacer"></span>
+   
+    <button *ngIf="!loggedin()" mat-raised-button color="accent" routerLink="/register">
+      Register
+    </button>
+    &nbsp;&nbsp;&nbsp;
+    <button *ngIf="!loggedin()" mat-raised-button color="accent" routerLink="/login">Login</button>
+    
+    
+    
+   <!-- <div class="text-center"  *ngIf="loggedin()">
+    👤 Welcome {{loggedinUser.firstname}}
+   </div> -->
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button *ngIf="loggedin()"  mat-raised-button color="warn" (click)="logout()" routerLink="/login" (click)="simpleAlert()">Logout</button>
+    
+   <!-- <div *ngIf="loggedin()" class="dropdown mr-5" dropdown>
+    <a href="#" class="dropdown-toggle text-light" dropdownToggle >
+      Welcome {{ loggedinUser.firstname }}
+    </a>
+    <div class="dropdown-menu" *dropdownMenu>
+      <a href="#" class="dropdown-item" routerLink="/dashboard">
+        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+        <a (click)="logout()"  routerLink="/login" class="dropdown-item" (click)="simpleAlert()">
+          <i class="fas fa-sign-out-alt"   ></i>Logout</a>
+    </div>
+   </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+  </mat-toolbar>
+</p>
+
+<router-outlet></router-outlet>

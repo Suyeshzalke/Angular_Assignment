@@ -1,0 +1,137 @@
+
+
+<div class="text-center">
+  
+  <div className="row mb-3">
+    <div className="col-md-4"></div>
+    <div className="card bg-muted col-md-4">
+      <div className="card header bold text-danger"><h1>My Profile 👤</h1></div>
+      <div className="card-body text-primary">
+        <h3 className="card-title">
+          <b>Firstname : {{ loggedinUser.firstname }}</b>
+          <br />
+        </h3>
+        <h3 className="card-text">
+          <b>Lastname : {{ loggedinUser.lastname }}</b>
+        </h3>
+        <h3 className="card-text">
+          <b>Phone No. : {{ loggedinUser.phone }}</b>
+        </h3>
+        <h3 className="card-text">
+          <b>Email Id : {{ loggedinUser.email }}</b>
+        </h3>
+        <h3 className="card-text">
+          <b>AddressLine1 : {{ loggedinUser.address.addressline1 }}</b>
+        </h3>
+      </div>
+      <div class="text-center">
+        <button mat-raised-button color="primary" (click)="dialogop()">
+          Update Profile
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" [ngStyle]="{ display: dialogStyle }">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div >
+       
+      </div>
+      <div class="text-center"> <h1><b>👤Update Profile</b></h1></div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form #updateForm="ngForm">
+            <div class="row">
+              <div class="col-md-7">
+                <label for="exampleInputName"><b>First Name</b></label>
+                <input
+                  required
+                  [(ngModel)]="user.firstname"
+                  name="firstname"
+                  type="text"
+                  class="form-control"
+                />
+                <label for="exampleInputName"><b>Address Line 1</b></label>
+                <input
+                  required
+                  [(ngModel)]="user.address.addressline1"
+                  name="addressline1"
+                  type="text"
+                  class="form-control"
+                />
+                <label for="exampleInputName"><b>State</b></label>
+                <input
+                  required
+                  [(ngModel)]="user.address.state"
+                  name="state"
+                  type="text"
+                  class="form-control"
+
+                />
+               
+               
+                <label for="exampleInputName"><b>Mobile</b></label>
+                <input
+                  required
+                  [(ngModel)]="user.phone"
+                  name="phone"
+                  type="text"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-md-6 ml-auto">
+                <label for="exampleInputName"><b>Last Name</b></label>
+                <input
+                  required
+                  [(ngModel)]="user.lastname"
+                  name="lastname"
+                  type="text"
+                  class="form-control"
+                />
+                <label for="exampleInputName"><b>Address Line 2</b></label>
+                <input
+                  required
+                  [(ngModel)]="user.address.addressline2"
+                  name="addressline2"
+                  type="text"
+                  class="form-control"
+                />
+                <label for="exampleInputName"><b>City</b></label>
+                <input
+                  required
+                  [(ngModel)]="user.address.city"
+                  name="city"
+                  type="text"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+         <button
+          type="button"
+          id="cross"
+          (click)="dialogclose()"
+          mat-raised-button color="warn"
+          >
+          Close
+        </button>&nbsp;
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="updateUser(updateForm.value)"
+          mat-raised-button color="accent"
+        >
+          Update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

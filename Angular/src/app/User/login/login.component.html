@@ -1,0 +1,28 @@
+<div class="container">
+
+<h1 mat-dialog-title>Login Form</h1>
+<div mat-dialog-content>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <label>Email Id</label><br/>
+    <mat-form-field appearance="outline">
+      <mat-label>Email Id</mat-label>
+      <input formControlName="email" matInput placeholder="Email Id" />
+      <span style="color:red"*ngIf="email && email.invalid && email.touched">Please enter valid Email id</span>
+
+    </mat-form-field><br/>
+    <label>Password</label><br/>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput placeholder="Password" />
+      <span style="color:red"*ngIf="password&& password.invalid && password.touched">Please Enter 8 digit password</span>
+
+    </mat-form-field><br/>
+    <div class="text-start">
+    <span style="color:darkorange">Forget Password ?</span>
+  </div>
+    <div mat-dialog-action [align]="'start'">
+        <button mat-raised-button color="primary" type="submit" (click)="simpleAlert()">Submit</button>
+      </div>
+  </form>
+</div>
+</div>

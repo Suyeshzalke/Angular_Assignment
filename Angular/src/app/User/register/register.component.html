@@ -1,0 +1,106 @@
+<div class="container">
+  <h1 mat-dialog-title>Register Form</h1>
+  <div mat-dialog-content>
+    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+    <form [formGroup]="registerForm" (ngSubmit)="addUser()">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input formControlName="firstname" matInput placeholder="firstname"/>
+       <span style="color:red"*ngIf="firstname && firstname.invalid && firstname.touched">Please Enter First Name</span>
+
+
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input formControlName="lastname" matInput placeholder="lastname"/>
+        <span style="color:red"*ngIf="lastname && lastname.invalid && lastname.touched">Please Enter Last Name</span>
+
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Address Line1</mat-label>
+        <input
+          formControlName="addressline1"
+          matInput
+          placeholder="addressline1"
+        />
+        <span style="color:red"*ngIf="addressline1 && addressline1.invalid && addressline1.touched">Please Enter your address</span>
+        
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field appearance="outline">
+        <mat-label>Address Line2</mat-label>
+        <input
+          formControlName="addressline2"
+          matInput
+          placeholder="addressline2"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state" placeholder="State">
+          <mat-option value="maharashtra">Maharashtra</mat-option>
+          <mat-option value="madhyapradesh">Madhyapradesh</mat-option>
+          <mat-option value="gujrat">Gujarat</mat-option>
+          <mat-option value="uttarpradesh">Uttarpradesh</mat-option>
+          <mat-option value="goa">Goa</mat-option>
+        </mat-select>
+        <span style="color:red"*ngIf="state && state.invalid && state.touched">Please Enter State</span>
+
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input formControlName="city" matInput placeholder="city" />
+        <span style="color:red"*ngIf="city && city.invalid && city.touched">Please enter city</span>
+
+      </mat-form-field>
+      <br/>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone No.</mat-label>
+        <input formControlName="phone" matInput placeholder="Phone" />
+        <span style="color:red"*ngIf="phone && phone.invalid && phone.touched">Please enter 10 digit no.</span>
+
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field appearance="outline">
+        <mat-label>Email Id</mat-label>
+        <input formControlName="email" matInput placeholder="Email Id" />
+        <span style="color:red"*ngIf="email && email.invalid && email.touched">Please enter valid Email id</span>
+
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput placeholder="Password" />
+        <span style="color:red"*ngIf="password&& password.invalid && password.touched">Please Enter 8 digit password</span>
+
+      </mat-form-field>&nbsp;
+      <mat-form-field appearance="outline">
+        <mat-label>Re-type Password</mat-label>
+        <input formControlName="retypepassword" matInput placeholder="Re-type Password" 
+        [ngClass]="{ 'is-invalid': submitted && f['retypepassword'].errors }"  />
+        <span *ngIf="submitted && f['retypepassword'].errors" class="invalid-feedback">
+          <span *ngIf="f['retypepassword'].errors['required']">Confirm Password is required</span>
+          <span *ngIf="f['retypepassword'].errors['MustMatch']">
+           Confirm Password Didn't Match
+          </span>
+          </span>
+      </mat-form-field>
+
+      <div mat-dialog-action [align]="'start'">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="simpleAlert()">
+          Submit
+        </button>&nbsp;
+        <button class="btnReset" (click)="Reset()"  mat-raised-button
+        color="warn">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>

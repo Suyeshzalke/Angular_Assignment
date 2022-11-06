@@ -1,0 +1,32 @@
+body {
+  background: #009688!important;
+  color: rgb(190, 190, 190);
+}
+
+.card {
+  box-shadow: 2px 2px 5px rgb(0, 0, 0)!important;
+  border-radius: 30px;
+  background: #d1baba;
+
+}
+
+.card-body {
+  background: #c9248a!important;
+}
+
+.card-footer {
+  background: #b83434;
+  border-bottom-left-radius: 30px !important;
+  border-bottom-right-radius: 30px !important;
+}
+
+.card-header {
+  border-radius: 30px !important;
+  border: 0px;
+  background: #9f2929!important;
+}
+
+.card-header img {
+  border-radius: 30px;
+
+}
